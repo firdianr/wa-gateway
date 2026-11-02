@@ -1,0 +1,16 @@
+services:
+  wa-gateway:
+    build: .
+    container_name: wa-gateway-standalone
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - wa_session_data:/app/auth_info_baileys
+
+volumes:
+  wa_session_data:
+    driver: local
