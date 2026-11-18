@@ -15,7 +15,10 @@ services:
       - PORT=3000
     volumes:
       - wa_session_data:/app/auth_info_baileys
+      - wa_queue_data:/app/queue_storage
 
 volumes:
   wa_session_data:
+    driver: local
+  wa_queue_data:
     driver: local
